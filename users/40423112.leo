@@ -10,18 +10,52 @@
 <find_panel_settings/>
 <vnodes>
 <v t="leo.20160520094637.2" a="E"><vh>@path ./../</vh>
-<v t="leo.20160520100818.1" a="E"><vh>@path microblog</vh>
-<v t="leo.20160520101235.1"><vh>@edit run.py</vh></v>
-<v t="leo.20160520100849.1" a="E"><vh>@path app</vh>
-<v t="leo.20160520100901.1"><vh>@edit __init__.py</vh></v>
-<v t="leo.20160520101132.1"><vh>@edit views.py</vh></v>
+<v t="leo.20160520122311.1"><vh>@edit README.md</vh></v>
+<v t="leo.20160520122322.1" a="E"><vh>@path microblog</vh>
+<v t="leo.20160520122322.3"><vh>@edit run.py</vh></v>
+<v t="leo.20160520122322.5" a="E"><vh>@path app</vh>
+<v t="leo.20160520122322.7"><vh>@edit __init__.py</vh></v>
+<v t="leo.20160520122322.8"><vh>@edit views.py_tutorial1</vh></v>
+<v t="leo.20160520122322.9"><vh>@edit views.py</vh></v>
+<v t="leo.20160520122322.11" a="E"><vh>@path templates</vh>
+<v t="leo.20160520122322.12"><vh>@edit base.html</vh></v>
+<v t="leo.20160520122322.13"><vh>@edit index.html</vh></v>
+</v>
 </v>
 </v>
 </v>
 </vnodes>
 <tnodes>
 <t tx="leo.20160520094637.2"></t>
-<t tx="leo.20160520100818.1"></t>
-<t tx="leo.20160520100849.1"></t>
+<t tx="leo.20160520122322.1"></t>
+<t tx="leo.20160520122322.11"></t>
+<t tx="leo.20160520122322.12">@language html
+&lt;html&gt;
+  &lt;head&gt;
+    {% if title %}
+    &lt;title&gt;{{ title }} - microblog&lt;/title&gt;
+    {% else %}
+    &lt;title&gt;microblog&lt;/title&gt;
+    {% endif %}
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div&gt;Microblog: &lt;a href="/index"&gt;Home&lt;/a&gt;&lt;/div&gt;
+    &lt;hr&gt;
+    {% block content %}{% endblock %}
+  &lt;/body&gt;
+&lt;/html&gt;
+</t>
+<t tx="leo.20160520122322.13">@language html
+{% extends "base.html" %}
+{% block content %}
+    &lt;h1&gt;Hi, {{ user.nickname }}!&lt;/h1&gt;
+    {% for post in posts %}
+    &lt;p&gt;
+      {{ post.author.nickname }} says: &lt;b&gt;{{ post.body }}&lt;/b&gt;
+    &lt;/p&gt;
+    {% endfor %}
+{% endblock %}
+</t>
+<t tx="leo.20160520122322.5"></t>
 </tnodes>
 </leo_file>
